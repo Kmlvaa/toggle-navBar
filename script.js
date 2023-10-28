@@ -1,18 +1,16 @@
-const sidebar = document.querySelector(".sidebar")
-const container = document.querySelector(".container")
-function openSidebar(e){
-    e.preventDefault()
-    sidebar.style.width = "300px";
-    container.style.opacity = "0.2";
-    sidebar.classList.remove("hide");
-    sidebar.classList.add("show");
-};
+let closebtn = document.querySelector(".closebtn")
+let openbtn = document.querySelector(".openbtn")
 
-function closeSidebar(e){
-    e.preventDefault()
-    sidebar.style.width = "0";
-    container.style.opacity = "1";
-    sidebar.style.transition = "0.6s linear"
-    sidebar.classList.remove("show");
-    sidebar.classList.add("hide");
-};
+openbtn.addEventListener('click', () => {
+    document.getElementById("mySidebar").style.width = "300px";
+    document.getElementById("main").style.marginLeft = "0px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.6)";
+})
+
+document.onclick = function (e) {
+    if (!document.getElementById("main").contains(e.target) && !document.getElementById("mySidebar").contains(e.target)) {
+        document.getElementById("mySidebar").style.width = "0px";
+        document.getElementById("main").style.marginLeft = "0px";
+        document.body.style.backgroundColor = "white";
+    }
+}
